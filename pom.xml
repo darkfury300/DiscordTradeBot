@@ -22,7 +22,7 @@
             <version>5.0.0-beta.20</version>
         </dependency>
 
-        <!-- ✅ PostgreSQL JDBC Driver (Fixes "No suitable driver found") -->
+        <!-- ✅ PostgreSQL JDBC Driver -->
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
@@ -43,7 +43,7 @@
             <version>3.0.0</version>
         </dependency>
 
-        <!-- ✅ Logging Dependencies (SLF4J with Simple Logger) -->
+        <!-- ✅ Logging Dependencies -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
@@ -67,6 +67,20 @@
                 <configuration>
                     <source>21</source>
                     <target>21</target>
+                </configuration>
+            </plugin>
+
+            <!-- ✅ Fix: Add Main-Class to the JAR Manifest -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>TradeBot</mainClass>  <!-- Change this if your main class is different -->
+                        </manifest>
+                    </archive>
                 </configuration>
             </plugin>
         </plugins>
